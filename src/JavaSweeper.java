@@ -3,6 +3,7 @@ import java.awt.*;
 import java.util.Locale;
 import sweeper.Box;
 import sweeper.Coord;
+import sweeper.Ranges;
 
 public class JavaSweeper extends JFrame {
 
@@ -30,10 +31,11 @@ public class JavaSweeper extends JFrame {
                 }
             }
         };
-        panel.setPreferredSize(new Dimension(COLS*IMAGE_SIZE, ROWS*IMAGE_SIZE));
+        panel.setPreferredSize(new Dimension(Ranges.getSize().x * IMAGE_SIZE, Ranges.getSize().y * IMAGE_SIZE));
         add(panel);
     }
     private JavaSweeper(){
+        Ranges.setSize(new Coord(COLS, ROWS));
         setImages();
         initPanel();
         initFrame();
