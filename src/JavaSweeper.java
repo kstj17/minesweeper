@@ -14,12 +14,19 @@ public class JavaSweeper extends JFrame {
     private final int ROWS = 9;
     private final int IMAGE_SIZE = 50;
 
-    public static void main(String[] args) {
-
-    new JavaSweeper().setVisible(true);
-
+    public static void main(String[] args)
+    {
+    new JavaSweeper();
     }
 
+    private JavaSweeper()
+    {
+        game = new Game(COLS, ROWS);
+        game.start();
+        setImages();
+        initPanel();
+        initFrame();
+    }
     private void initPanel()
     {
         panel = new JPanel()
@@ -35,12 +42,7 @@ public class JavaSweeper extends JFrame {
         panel.setPreferredSize(new Dimension(Ranges.getSize().x * IMAGE_SIZE, Ranges.getSize().y * IMAGE_SIZE));
         add(panel);
     }
-    private JavaSweeper(){
-        game = new Game(COLS, ROWS);
-        setImages();
-        initPanel();
-        initFrame();
-    }
+
 
     private void initFrame(){
 
